@@ -19,7 +19,3 @@ Users can directly browse the pdf file context directly online.
 
 
 
-## Reverse Footnote
-
-[^footnote]: The footnote source
-[^fn-nth-2]: The 2nd footnote source
