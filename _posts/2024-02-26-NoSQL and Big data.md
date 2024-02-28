@@ -10,7 +10,7 @@ mermaid: true
 image:
   path: /assets/img/redshift_security_group.png  
 ---
-##  Exploring the NoSQL Universe on my GitHub Repositories
+##  Exploring the NoSQL and Big Data Universe on my GitHub Repositories
 
 | Topic                        | Github Repo                | 
 |:-----------------------------|:--------------------------:|
