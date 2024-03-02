@@ -9,6 +9,8 @@
 set -eu
 
 SITE_DIR="_site"
+SITE_DIR=""
+
 
 _config="_config.yml"
 
