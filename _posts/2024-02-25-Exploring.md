@@ -1,5 +1,5 @@
 ---
-title: Effortless Online PDF Viewing Automating PDF-to-Image Conversion with Python and Django
+title: Effortless Online PDF Viewing Automating PDF to Image Conversion with Python and Django
 author: vivian
 date: 2024-02-25 11:33:00 +0800
 categories: [Project_Profilo, Web_Application]
