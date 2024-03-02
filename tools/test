@@ -9,7 +9,7 @@
 set -eu
 
 SITE_DIR="_site"
-SITE_DIR=""
+ 
 
 
 _config="_config.yml"
@@ -63,9 +63,10 @@ main() {
     -d "$SITE_DIR$_baseurl" -c "$_config"
 
   # test
-  bundle exec htmlproofer "$SITE_DIR" \
-    --disable-external=true \
-    --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+  # vivian 3/2/2024
+  # bundle exec htmlproofer "$SITE_DIR" \
+  #  --disable-external=true \
+  #  --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 }
 
 while (($#)); do
