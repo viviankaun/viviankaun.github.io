@@ -14,6 +14,7 @@ image:
 
 | Topic                        | Github Repo                | 
 |:-----------------------------|:--------------------------:|
+| kafka               | [ Market Real Time Data Analysis Using Kafka. ](https://github.com/viviankaun/Stock-Market-Real-Time-Data-Analysis-Using-Kafka)  
 | Airflow                     | [Implemented data pipelines with Airflow : Moving data from S3 to Redshift.](https://github.com/viviankaun/data-pipelines-with-Airflow-Moving-data-from-S3-to-Redshift)              |
 |  Redshift                |  [Transfer data from JSON files on S3 into Redshift using Python.](https://github.com/viviankaun/Transfer-data-from-JSON-files-on-S3-into-Redshift-using-Python)             |
 | Spark  | [Transfer JSON data into structured analytical data using Spark.](https://github.com/viviankaun/Transforms-JSON-data-into-structured-analytical-data-using-Spark)|          |

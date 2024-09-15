@@ -1,4 +1,12 @@
 <div align="center">
+  # commond line 
+
+  bundle exec jekyll serve
+
+  git add . 
+  git commit -m " "
+
+  git push origin master
 
   # Chirpy Jekyll Theme
 
