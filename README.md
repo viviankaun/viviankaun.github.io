@@ -4,7 +4,7 @@
   bundle exec jekyll serve
 
   git add . 
-  git commit -m " "
+  git commit -m " update "
 
   git push origin master
 
