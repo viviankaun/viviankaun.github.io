@@ -1,5 +1,5 @@
 ---
-title: Exploring the NoSQL Universe on my GitHub Repositories
+title: Exploring the Big Data and IoT
 author: vivian
 date: 2024-09-17 11:33:00 +0800
 categories: [Project_Profilo, IoT, Spark]
@@ -10,7 +10,33 @@ mermaid: true
 image:
   path: /assets/img/lab3-5.png  
 ---
-##  Exploring the NoSQL and Big Data Universe on my GitHub Repositories
+
+## Use OpenSSL to Generate a Public Key
+```bash 
+$ cd ~
+$ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+$ openssl rsa -pubout -in private_key.pem -out public_key.pem
+$ cat public_key.pem 
+```
+
+## Use openssl to encrypt data
+```bash 
+$ echo "Hello IoT" > iot-data.txt
+$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -a -salt -in iot-data.txt -out iot-data.txt.enc
+Password: abc123
+Verifying...: abc123
+$ cat iot-data.txt.enc
+```
+
+## Use openssl to decrypt data
+```bash 
+$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -d -a -in iot-data.txt.enc -pass pass:abc123
+$ echo "abc123" > passwdfile
+$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -d -a -in iot-data.txt.enc -pass file:./passwdfile
+```
+
+
+
 
 
 ```python 
