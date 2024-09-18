@@ -8,7 +8,7 @@ pin: true
 math: true
 mermaid: true
 image:
-  path: /assets/img/lab3-5.png  
+  path: /assets/img/spark.png  
 ---
 
 ## Use OpenSSL to Generate a Public Key
