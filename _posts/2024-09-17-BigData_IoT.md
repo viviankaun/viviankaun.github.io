@@ -8,7 +8,7 @@ pin: true
 math: true
 mermaid: true
 image:
-  path: /assets/img/redshift_security_group.png  
+  path: /assets/img/lab3-5.png  
 ---
 ##  Exploring the NoSQL and Big Data Universe on my GitHub Repositories
 
