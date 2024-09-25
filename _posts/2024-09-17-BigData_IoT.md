@@ -62,6 +62,29 @@ spark.stop()
 
 ```
 
+## split() vs split(' ')
+Use split() if you want to split by any amount of whitespace and ignore extra spaces.
+Use split(' ') if you need to preserve the exact spacing, including empty strings where multiple spaces exist.
+
+## map() vs flatMap():
+map(): Transforms each input element to exactly one output element or one collection. The output retains the nested structure if the transformation returns a collection.
+flatMap(): Transforms each input element to zero, one, or more elements and flattens the result into a single collection.
+
+```python 
+rdd = sc.parallelize(["Hello world", "How are you"])
+# Using map (each line becomes a list of words)
+mapped = rdd.map(lambda line: line.split())
+print(mapped.collect())  
+# Output: [['Hello', 'world'], ['How', 'are', 'you']]
+
+# Using flatMap (each line is split into words, but the lists are flattened into a single collection)
+flat_mapped = rdd.flatMap(lambda line: line.split())
+print(flat_mapped.collect())  
+# Output: ['Hello', 'world', 'How', 'are', 'you']
+
+
+```
+
 PySpark's Distributed Processing Mechanism
 PySpark is the Python API for Apache Spark, a distributed computing framework. Spark provides a powerful engine for processing large datasets in parallel across a cluster of machines, or even on a single machine with multiple CPU cores. Here's how PySpark enables distributed processing:
 
@@ -80,3 +103,36 @@ PySpark employs lazy evaluation, meaning that transformations on RDDs (like map(
 
 4. Distributed Storage
 When you load a large dataset into PySpark, the data can be stored on distributed file systems like HDFS (Hadoop Distributed File System) or S3 (Amazon Simple Storage Service). Spark reads the data in parallel from these distributed storage systems, allowing it to process massive datasets that cannot fit into memory on a single machine.
+
+## Map reduce 
+1. Map Phase: This phase processes the input data and produces intermediate key-value pairs.
+2. Reduce Phase: This phase takes the intermediate key-value pairs produced by the Map phase and aggregates or reduces them to produce the final output. 
+
+
+```python 
+import sys
+from operator import add
+from pyspark.sql import SparkSession
+
+# Initialize the Spark session
+spark = SparkSession.builder.appName("wordCount").getOrCreate()
+
+# Load the file as an RDD
+textFile = spark.sparkContext.textFile("lab3-iot-gendata.txt") 
+
+# Output the filtered histogram, grouping the numbers into two groups
+counts = textFile.flatMap(lambda x: x.split()) \
+    .filter(lambda x: x.isdigit()) \
+    .map(lambda x: ('Group 1' if int(x) <= 50 else 'Group 2', 1)) \
+    .reduceByKey(add)
+
+# Collect and print the output
+output = counts.collect()
+for (group, count) in output:
+    print(f"{group}: {count}")
+```
+```
+output : 
+Group 1: 43
+Group 2: 57
+```
