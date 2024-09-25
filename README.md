@@ -1,13 +1,13 @@
 <div align="center">
   # commond line 
-
+  #git pull origin master --no-rebase 
   bundle exec jekyll serve
 
   git add . 
   git commit -m " update "
 
   git push origin master
-  
+
 
   # Chirpy Jekyll Theme
 
