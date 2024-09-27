@@ -11,30 +11,6 @@ image:
   path: /assets/img/spark.png  
 ---
 
-## Use OpenSSL to Generate a Public Key
-```bash 
-$ cd ~
-$ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
-$ openssl rsa -pubout -in private_key.pem -out public_key.pem
-$ cat public_key.pem 
-```
-
-## Use openssl to encrypt data
-```bash 
-$ echo "Hello IoT" > iot-data.txt
-$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -a -salt -in iot-data.txt -out iot-data.txt.enc
-Password: abc123
-Verifying...: abc123
-$ cat iot-data.txt.enc
-```
-
-## Use openssl to decrypt data
-```bash 
-$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -d -a -in iot-data.txt.enc -pass pass:abc123
-$ echo "abc123" > passwdfile
-$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -d -a -in iot-data.txt.enc -pass file:./passwdfile
-```
-
 
 ## PySpark Distributed Processing -- Counting Words: 
 
@@ -104,7 +80,7 @@ PySpark employs lazy evaluation, meaning that transformations on RDDs (like map(
 4. Distributed Storage
 When you load a large dataset into PySpark, the data can be stored on distributed file systems like HDFS (Hadoop Distributed File System) or S3 (Amazon Simple Storage Service). Spark reads the data in parallel from these distributed storage systems, allowing it to process massive datasets that cannot fit into memory on a single machine.
 
-## Map reduce 
+## Map Reduce
 1. Map Phase: This phase processes the input data and produces intermediate key-value pairs.
 2. Reduce Phase: This phase takes the intermediate key-value pairs produced by the Map phase and aggregates or reduces them to produce the final output. 
 
@@ -136,3 +112,28 @@ output :
 Group 1: 43
 Group 2: 57
 ```
+
+## Use OpenSSL to Generate a Public Key
+```bash 
+$ cd ~
+$ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+$ openssl rsa -pubout -in private_key.pem -out public_key.pem
+$ cat public_key.pem 
+```
+
+## Use openssl to encrypt data
+```bash 
+$ echo "Hello IoT" > iot-data.txt
+$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -a -salt -in iot-data.txt -out iot-data.txt.enc
+Password: abc123
+Verifying...: abc123
+$ cat iot-data.txt.enc
+```
+
+## Use openssl to decrypt data
+```bash 
+$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -d -a -in iot-data.txt.enc -pass pass:abc123
+$ echo "abc123" > passwdfile
+$ openssl aes-256-cbc -md sha512 -pbkdf2 -iter 1000 -d -a -in iot-data.txt.enc -pass file:./passwdfile
+```
+
