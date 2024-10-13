@@ -11,6 +11,7 @@ image:
   path: /assets/img/redshift_security_group.png  
 ---
 ##  Exploring the NoSQL and Big Data Universe on my GitHub Repositories
+##
 
 | Topic                        | Github Repo                | 
 |:-----------------------------|:--------------------------:|
